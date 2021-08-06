@@ -6,7 +6,7 @@
 package assignment.service;
 
 import assigment.common.Logs;
-import assigment.common.Assignment;
+import assigment.common.OperationsOnFiles;
 import assignment.interfaces.Writable;
 import assignment.utils.ConversionUtils;
 import java.io.BufferedWriter;
@@ -26,12 +26,12 @@ public class CsvWriter implements Writable {
     {
     try
     {
-        BufferedWriter br= new BufferedWriter(new FileWriter(Assignment.FILE_PATH+"RESULT.csv"));
+        BufferedWriter br= new BufferedWriter(new FileWriter(OperationsOnFiles.FILE_PATH+"RESULT.csv"));
         br.write(HEADERS);
         for(int i=0;i<al.size();i++)
         {
             String cells[]=(String [])al.get(i);
-            String csvRecord=cells[Assignment.yearAddress]+","+cells[Assignment.countryAddress].toUpperCase()+","+cells[Assignment.stateAddress]+","+cells[Assignment.cityAddress]+","+cells[Assignment.itemAddress]+","+String.format("%.4f",ConversionUtils.rupeesToUSDConversion(cells[Assignment.profitAddress]))+"\n";
+            String csvRecord=cells[OperationsOnFiles.yearAddress]+","+cells[OperationsOnFiles.countryAddress].toUpperCase()+","+cells[OperationsOnFiles.stateAddress]+","+cells[OperationsOnFiles.cityAddress]+","+cells[OperationsOnFiles.itemAddress]+","+String.format("%.4f",ConversionUtils.rupeesToUSDConversion(cells[OperationsOnFiles.profitAddress]))+"\n";
             br.write(csvRecord);
         }
         br.flush();

@@ -22,7 +22,7 @@ public class Logs {
         layout.setConversionPattern(conversionPattern);
 
         FileAppender fileAppender = new FileAppender();
-        fileAppender.setFile(Assignment.LOG_PATH + "Error_log_" + formattedDate + ".log");
+        fileAppender.setFile(OperationsOnFiles.LOG_PATH + "Error_log_" + formattedDate + ".log");
         fileAppender.setLayout(layout);
         fileAppender.activateOptions();
 

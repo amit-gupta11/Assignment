@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class ParseData {
   static   ArrayList<String[]> rows = new ArrayList<>();
   public static void readTXTFile() {
-    BufferedReader br = null;
+    BufferedReader readFile = null;
     try {
       String record;
-          br = new BufferedReader(new FileReader(Assignment.FILE_PATH+"data.txt"));
-      while ((record = br.readLine()) != null) {
+          readFile = new BufferedReader(new FileReader(OperationsOnFiles.FILE_PATH+"data.txt"));
+      while ((record = readFile.readLine()) != null) {
           if(RecordValidations.isValidRecord(record))
           {
           parseDataMethod(record);    
@@ -37,8 +37,8 @@ public class ParseData {
         Logs.printLogs("Error is ParseData function Error:"+exp.toString());
     } finally {
       try {
-        if (br != null) {
-          br.close();
+        if (readFile != null) {
+          readFile.close();
         }
       } catch(IOException e) {
         e.printStackTrace();
@@ -50,10 +50,8 @@ public class ParseData {
   {	
     String recordData[]=record.split("\\|");
     rows.add(recordData);
-    System.out.println("Year - " + recordData[Assignment.yearAddress] + " Country - " + (String)recordData[Assignment.countryAddress].toUpperCase()+ " State - " + recordData[Assignment.stateAddress] + " City - " + recordData[Assignment.cityAddress] + " Item - " + recordData[Assignment.itemAddress] + " Profit - " + "$" + String.format("%.4f",ConversionUtils.rupeesToUSDConversion(recordData[Assignment.profitAddress])));
+    System.out.println("Year - " + recordData[OperationsOnFiles.yearAddress] + " Country - " + (String)recordData[OperationsOnFiles.countryAddress].toUpperCase()+ " State - " + recordData[OperationsOnFiles.stateAddress] + " City - " + recordData[OperationsOnFiles.cityAddress] + " Item - " + recordData[OperationsOnFiles.itemAddress] + " Profit - " + "$" + String.format("%.4f",ConversionUtils.rupeesToUSDConversion(recordData[OperationsOnFiles.profitAddress])));
   }
   
-  public static void printDataMethod(String[]args){
-     
-  }
+
 }

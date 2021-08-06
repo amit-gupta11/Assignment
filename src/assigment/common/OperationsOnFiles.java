@@ -1,6 +1,6 @@
 package assigment.common;
 
-public class Assignment {
+public class OperationsOnFiles {
 
     public static int yearAddress = 5;
     public static int countryAddress = 0;

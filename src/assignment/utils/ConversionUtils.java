@@ -5,7 +5,7 @@
  */
 package assignment.utils;
 
-import assigment.common.Assignment;
+import assigment.common.OperationsOnFiles;
 
 /**
  *
@@ -15,7 +15,7 @@ public class ConversionUtils {
     
   public static double rupeesToUSDConversion(String price)
   {
-      double convertedPrice = Integer.valueOf(price)/Assignment.dollarPrice;
+      double convertedPrice = Integer.valueOf(price)/OperationsOnFiles.dollarPrice;
       return convertedPrice;
   }
     
